@@ -84,7 +84,7 @@ export function ServicesContent() {
         <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {services.map((s: any, i: number) => {
-              const Icon = defaultIcons[i] ?? Globe
+              const Icon = defaultIcons[i] ?? Compass
               return (
                 <motion.div
                   key={s.title || i}
