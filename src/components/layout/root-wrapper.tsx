@@ -1,7 +1,6 @@
 'use client'
 
 import { usePathname } from 'next/navigation'
-import { useEffect, useState } from 'react'
 
 import { CookieConsent } from '@/components/layout/cookie-consent'
 import { FloatingCallButton } from '@/components/floating-call-button'
@@ -12,18 +11,11 @@ import { Navbar } from '@/components/layout/navbar'
 
 export function RootWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
-  const [isAdmin, setIsAdmin] = useState(false)
+  const isAdminPath = pathname?.startsWith('/admin') ?? false
 
-  useEffect(() => {
-    // Vérifier si on est en espace admin ET si on est connecté
-    const isAdminPath = pathname?.startsWith('/admin')
-    const token = localStorage.getItem('authToken')
-    setIsAdmin(isAdminPath && !!token)
-  }, [pathname])
-
-  // En espace admin connecté: pas de header/footer
-  if (isAdmin) {
-    return children
+  // Espace admin: pas de header/footer/bandeau public (y compris la page de connexion)
+  if (isAdminPath) {
+    return <>{children}</>
   }
 
   // Sinon: header + contenu + footer complet
