@@ -8,17 +8,13 @@ import {
 } from '@/components/seo/json-ld'
 
 const description =
-  'Création de site, SEO, identité visuelle, développement sur mesure : découvrez nos services pour développer votre activité en ligne.'
+  "Coaching exécutif, préparation mentale, bootcamp et formations : les accompagnements Hop4Lead pour dirigeants, athlètes et équipes."
 
 const services = [
-  { title: 'Création de site vitrine', desc: 'Un site moderne, rapide et responsive qui présente clairement votre activité et inspire confiance à vos visiteurs.' },
-  { title: 'Application web', desc: 'Outils métier, plateformes de réservation, espaces clients : des applications pensées pour simplifier votre quotidien.' },
-  { title: 'Référencement naturel (SEO)', desc: 'Optimisation technique, contenu stratégique et suivi de positionnement pour gagner en visibilité sur Google.' },
-  { title: 'Identité visuelle', desc: 'Logo, charte graphique, supports de communication : une image cohérente qui vous ressemble.' },
-  { title: 'Communication digitale', desc: 'Stratégie de contenu, réseaux sociaux et campagnes pour développer votre audience en ligne.' },
-  { title: 'Développement sur mesure', desc: 'Intégrations, automatisations, API : des solutions techniques taillées pour vos besoins spécifiques.' },
-  { title: 'Maintenance & sécurité', desc: 'Mises à jour, sauvegardes, monitoring et corrections pour un site toujours performant et sécurisé.' },
-  { title: 'Analyse & reporting', desc: 'Tableaux de bord clairs pour suivre vos performances, comprendre vos visiteurs et ajuster votre stratégie.' },
+  { title: 'Coaching exécutif', desc: "Permettre aux entrepreneurs et aux leaders de gagner en performance et en sérénité en développant une vision claire, en structurant leur stratégie et en maintenant leur équilibre." },
+  { title: 'Préparation mentale', desc: "Permettre aux athlètes de développer un mindset de champion afin d'accéder à leur plein potentiel lors des échéances importantes." },
+  { title: 'Bootcamp', desc: "Une expérience de coaching immersive et collective dans un cadre idéal, pour une transformation profonde et durable." },
+  { title: 'Formations', desc: "Optimiser votre potentiel individuel par l'acquisition de compétences dans des domaines spécifiques." },
 ]
 
 export const metadata: Metadata = {

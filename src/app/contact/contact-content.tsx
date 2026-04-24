@@ -16,9 +16,9 @@ const ease = [0.22, 1, 0.36, 1] as const
 const defaults = {
   hero: {
     eyebrow: 'Contact',
-    title: 'Parlons de votre projet',
-    description: 'Remplissez le formulaire ci-dessous ou contactez-nous directement. Nous répondons sous 24h.',
-    image: 'https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&w=1920&q=80',
+    title: 'Parlons de votre performance',
+    description: "Racontez-nous vos enjeux, individuels ou collectifs. Nous revenons vers vous sous 24 h pour construire ensemble l'accompagnement qui vous ressemble.",
+    image: 'https://i.ibb.co/wFfY20Qc/hop-routine-opt-r35tzvjxtodgi4uybqou01th2z7ldk3dnn8vv9q7eg.webp',
   },
   info: {
     phone: siteConfig.phone,
@@ -90,7 +90,7 @@ export function ContactContent() {
                         id="message"
                         name="message"
                         rows={5}
-                        placeholder="Décrivez votre projet en quelques mots..."
+                        placeholder="Décrivez votre besoin (coaching, préparation mentale, équipe...) en quelques mots..."
                         className="w-full rounded-xl border border-input bg-transparent px-3 py-2.5 text-sm leading-relaxed text-foreground transition-colors placeholder:text-muted-foreground focus-visible:border-ring focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
                       />
                     </div>

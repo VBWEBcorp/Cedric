@@ -6,22 +6,18 @@ import { SectionTitle } from '@/components/ui/section-title'
 import { useContent } from '@/hooks/use-content'
 
 const defaultTestimonials = [
-  { name: 'Marie D.', company: 'Boulangerie Le Fournil', text: "Depuis le nouveau site, je reçois 3 fois plus d'appels. Les clients nous trouvent enfin sur Google.", stars: 5 },
-  { name: 'Thomas L.', company: 'Cabinet Conseil TLR', text: 'Un travail soigné, un site clair et professionnel. Mes prospects comprennent immédiatement ce que je propose.', stars: 5 },
-  { name: 'Camille B.', company: 'Atelier Camille', text: "Le site reflète parfaitement l'univers de ma marque. J'ai gagné en crédibilité auprès de mes clients.", stars: 5 },
-  { name: 'Laurent M.', company: 'LM Rénovation', text: 'En trois mois, mon chiffre a augmenté de 40 %. Le site et le SEO font vraiment la différence.', stars: 5 },
-  { name: 'Nadia K.', company: 'Agence NovaTour', text: "Un accompagnement au top, des délais respectés et un résultat qui dépasse mes attentes.", stars: 5 },
-  { name: 'Sophie R.', company: 'Studio Pilates Zen', text: "L'équipe a su capter l'ambiance de mon studio. Les réservations ont décollé.", stars: 5 },
-  { name: 'Pierre V.', company: 'Transports Vallée', text: "Un investissement rentabilisé en quelques semaines. Des contacts qualifiés chaque jour.", stars: 5 },
-  { name: 'Julie A.', company: "Les Jardins d'Alice", text: "Ils ont transformé notre présence en ligne. Le site est magnifique et nos ventes ont triplé.", stars: 5 },
-  { name: 'Franck G.', company: 'Studio FG', text: "Design épuré, navigation fluide, exactement ce que je voulais pour présenter mes projets.", stars: 4 },
-  { name: 'Émilie T.', company: 'Clinique Vétérinaire du Parc', text: "Nos clients trouvent toutes les infos facilement. La prise de rendez-vous a changé notre quotidien.", stars: 5 },
+  { name: 'Jean-Michel Grimal', company: "Sélectionneur EdF d'endurance équestre", text: "6 ans que Franck travaille avec l'équipe de France. L'esprit collectif est devenu très fort, la cohésion est parfaite. L'équipe est aujourd'hui championne du monde et d'Europe en titre.", stars: 5 },
+  { name: 'Alan Goasdoue', company: 'Joueur de Poker Professionnel', text: "Franck a été mon coach et préparateur mental durant mes 4 premières années. Son accompagnement a grandement participé à mon évolution et à forger la personne que je suis aujourd'hui.", stars: 5 },
+  { name: 'Théo Sastre', company: 'Entrepreneur', text: "Cédric m'a permis de passer du statut de solopreneur à entrepreneur. Son écoute et son professionnalisme m'ont apporté un cadre bienveillant et sécurisant. Les acquis ont changé radicalement ma façon de diriger.", stars: 5 },
+  { name: 'Alexane Najchaus', company: 'Team Pro WINAMAX', text: "L'expertise de Fabrice m'a fait économiser beaucoup de temps avec des résultats à effets immédiats sur ma motivation et mon énergie. Un changement radical sur ma santé physique, mentale et émotionnelle.", stars: 5 },
+  { name: 'Jonathan Salamon', company: 'Entrepreneur, Auteur, Conférencier', text: "Cédric m'a aidé dans un moment de transition important. Il a été présent, compétent et attentif. Je le recommanderais spontanément à une personne qui aurait besoin de franchir un seuil professionnel.", stars: 5 },
+  { name: 'Franck Larrey', company: 'Témoignage athlète accompagné', text: "Grâce à ses connaissances, son expérience et ses outils, je gère avec calme et précision tous les challenges. Son objectif n'est pas de vous conforter dans vos idées, mais de vous faire performer.", stars: 5 },
 ]
 
 const defaults = {
   eyebrow: 'Témoignages',
   title: 'Ils nous font confiance',
-  description: 'Des entreprises de tous horizons qui ont gagné en visibilité et en crédibilité.',
+  description: "Dirigeants, athlètes de haut niveau et joueurs professionnels qui ont atteint un nouveau palier grâce à nos accompagnements.",
   testimonials: defaultTestimonials,
 }
 

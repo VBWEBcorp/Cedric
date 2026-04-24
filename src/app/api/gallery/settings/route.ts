@@ -9,14 +9,25 @@ export async function GET() {
     await connectDB()
     const settings = await GallerySettings.findOne()
 
-    if (!settings) {
-      return NextResponse.json({ enabled: false, title: 'Nos réalisations', eyebrow: 'Galerie', description: 'Découvrez nos projets récents et laissez-vous inspirer par notre savoir-faire.' })
+    const fallback = {
+      enabled: true,
+      title: 'Hop4Lead en images',
+      eyebrow: 'Galerie',
+      description: 'Coulisses, séminaires et moments forts de nos accompagnements.',
+      heroImage: 'https://i.ibb.co/Df7gLTcQ/coaching-equipe-france-opt-r71sd9a2ant6vka7gcad8l9m0jgws2lrm4oxwfqupk.webp',
     }
+    if (!settings) return NextResponse.json(fallback)
 
     return NextResponse.json(settings)
   } catch (error) {
     console.error('Gallery settings error:', error)
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
+    return NextResponse.json({
+      enabled: true,
+      title: 'Hop4Lead en images',
+      eyebrow: 'Galerie',
+      description: 'Coulisses, séminaires et moments forts de nos accompagnements.',
+      heroImage: 'https://i.ibb.co/Df7gLTcQ/coaching-equipe-france-opt-r71sd9a2ant6vka7gcad8l9m0jgws2lrm4oxwfqupk.webp',
+    })
   }
 }
 

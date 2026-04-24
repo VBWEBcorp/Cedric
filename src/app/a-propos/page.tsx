@@ -4,7 +4,7 @@ import { AboutContent } from './about-content'
 import { breadcrumbJsonLd, webPageJsonLd } from '@/components/seo/json-ld'
 
 const description =
-  'Découvrez notre histoire, nos valeurs et notre équipe. Nous accompagnons les entreprises dans leur développement digital.'
+  "Hop4Lead : trois experts, Cédric Vanhoutte (coach exécutif), Franck Larrey (préparateur mental) et Fabrice Bigot (biohacking), au service d'une performance humaine et durable."
 
 export const metadata: Metadata = {
   title: 'À propos',

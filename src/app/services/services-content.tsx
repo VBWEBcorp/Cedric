@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import {
-  BarChart3, Code, Globe, Megaphone, Palette, Search, ShieldCheck, Smartphone,
+  Brain, Compass, Flame, GraduationCap, HeartPulse, Mountain, Trophy, Users,
 } from 'lucide-react'
 
 import { CtaSection } from '@/components/sections/cta-section'
@@ -11,24 +11,57 @@ import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/ca
 import { useContent } from '@/hooks/use-content'
 
 const ease = [0.22, 1, 0.36, 1] as const
-const defaultIcons = [Globe, Smartphone, Search, Palette, Megaphone, Code, ShieldCheck, BarChart3]
+const defaultIcons = [Compass, Brain, Flame, GraduationCap, Users, Trophy, HeartPulse, Mountain]
 
 const defaults = {
   hero: {
-    eyebrow: 'Services',
-    title: "Tout ce qu'il faut pour réussir en ligne",
-    description: "Des prestations complètes, de la conception à l'accompagnement continu, adaptées à toutes les tailles d'entreprise.",
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1920&q=80',
+    eyebrow: 'Nos accompagnements',
+    title: 'Une gamme adaptée pour la performance des individus et des équipes',
+    description:
+      "Quatre formats complémentaires (coaching exécutif, préparation mentale, bootcamp, formations) pour athlètes, dirigeants, managers et leurs équipes.",
+    image: 'https://i.ibb.co/Df7gLTcQ/coaching-equipe-france-opt-r71sd9a2ant6vka7gcad8l9m0jgws2lrm4oxwfqupk.webp',
   },
   services: [
-    { title: 'Création de site vitrine', description: 'Un site moderne, rapide et responsive qui présente clairement votre activité et inspire confiance à vos visiteurs.' },
-    { title: 'Application web', description: 'Outils métier, plateformes de réservation, espaces clients : des applications pensées pour simplifier votre quotidien.' },
-    { title: 'Référencement naturel (SEO)', description: 'Optimisation technique, contenu stratégique et suivi de positionnement pour gagner en visibilité sur Google.' },
-    { title: 'Identité visuelle', description: 'Logo, charte graphique, supports de communication : une image cohérente qui vous ressemble.' },
-    { title: 'Communication digitale', description: 'Stratégie de contenu, réseaux sociaux et campagnes pour développer votre audience en ligne.' },
-    { title: 'Développement sur mesure', description: 'Intégrations, automatisations, API : des solutions techniques taillées pour vos besoins spécifiques.' },
-    { title: 'Maintenance & sécurité', description: 'Mises à jour, sauvegardes, monitoring et corrections pour un site toujours performant et sécurisé.' },
-    { title: 'Analyse & reporting', description: 'Tableaux de bord clairs pour suivre vos performances, comprendre vos visiteurs et ajuster votre stratégie.' },
+    {
+      title: 'Coaching exécutif',
+      description:
+        "Permettre aux entrepreneurs et aux leaders de gagner en performance et en sérénité en développant une vision claire, en structurant leur stratégie et en maintenant leur équilibre.",
+    },
+    {
+      title: 'Préparation mentale',
+      description:
+        "Permettre aux athlètes de développer un mindset de champion afin d'accéder à leur plein potentiel lors des échéances importantes.",
+    },
+    {
+      title: 'Bootcamp',
+      description:
+        "Une expérience de coaching immersive et collective dans un cadre idéal, pour une transformation de votre performance profonde et durable.",
+    },
+    {
+      title: 'Formations',
+      description:
+        "Optimiser votre potentiel individuel par l'acquisition de compétences dans des domaines spécifiques.",
+    },
+    {
+      title: 'Accompagnement équipes',
+      description:
+        "Aider les équipes à atteindre leur plein potentiel en favorisant des interactions fluides et constructives, levier essentiel de la performance collective.",
+    },
+    {
+      title: 'Préparation aux échéances',
+      description:
+        "Gestion du stress, concentration, routine de performance : se préparer mentalement aux moments décisifs, compétitions, négociations ou prises de parole.",
+    },
+    {
+      title: 'Biohacking & énergie',
+      description:
+        "Optimiser concentration, flow, récupération et gestion du sommeil sous adrénaline grâce à des méthodes issues des neurosciences.",
+    },
+    {
+      title: 'Séminaires sur-mesure',
+      description:
+        "Journées ou week-ends pour codir, comités et équipes dirigeantes. Cohésion, vision commune et performance collective.",
+    },
   ],
 }
 

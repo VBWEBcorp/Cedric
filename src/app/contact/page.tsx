@@ -4,7 +4,7 @@ import { ContactContent } from './contact-content'
 import { breadcrumbJsonLd, webPageJsonLd } from '@/components/seo/json-ld'
 
 const description =
-  'Contactez-nous pour discuter de votre projet. Devis gratuit, réponse rapide.'
+  "Contactez Hop4Lead pour un premier échange autour de votre performance : coaching exécutif, préparation mentale, bootcamp ou formations. Réponse sous 24 h."
 
 export const metadata: Metadata = {
   title: 'Contact',

@@ -11,14 +11,14 @@ import {
 } from 'lucide-react'
 
 const values: { icon: LucideIcon; label: string }[] = [
+  { icon: Rocket, label: 'Performance écologique' },
+  { icon: HeartHandshake, label: 'Humain' },
+  { icon: Target, label: 'Mindset' },
   { icon: Sparkles, label: 'Excellence' },
-  { icon: Handshake, label: 'Confiance' },
-  { icon: Lightbulb, label: 'Innovation' },
-  { icon: Eye, label: 'Transparence' },
-  { icon: Rocket, label: 'Performance' },
-  { icon: HeartHandshake, label: 'Proximité' },
-  { icon: Shield, label: 'Fiabilité' },
-  { icon: Target, label: 'Sur mesure' },
+  { icon: Lightbulb, label: 'Vision' },
+  { icon: Handshake, label: 'Cohésion' },
+  { icon: Shield, label: 'Équilibre' },
+  { icon: Eye, label: 'Alignement' },
 ]
 
 function ValuesTrack({

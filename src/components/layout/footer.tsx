@@ -6,7 +6,7 @@ import { siteConfig } from '@/lib/seo'
 const navLinks = [
   { label: 'Accueil', to: '/' },
   { label: 'À propos', to: '/a-propos' },
-  { label: 'Services', to: '/services' },
+  { label: 'Accompagnements', to: '/services' },
   { label: 'Contact', to: '/contact' },
 ]
 
@@ -35,11 +35,8 @@ export function Footer() {
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr]">
           {/* Brand */}
           <div className="space-y-5">
-            <div className="flex items-center gap-2 font-display text-lg font-semibold tracking-tight">
-              <span className="flex size-9 items-center justify-center rounded-xl bg-primary text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="size-[18px]"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
-            </span>
-              <span className="text-white">{siteConfig.name}</span>
+            <div className="font-display text-lg font-semibold tracking-tight text-white">
+              {siteConfig.name}
             </div>
             <p className="max-w-xs text-[13px] leading-relaxed text-zinc-400">
               {siteConfig.description}
@@ -69,8 +66,7 @@ export function Footer() {
                   <MapPin className="size-3.5" />
                 </span>
                 <span>
-                  {siteConfig.address.street}, {siteConfig.address.postalCode}{' '}
-                  {siteConfig.address.city}
+                  {[siteConfig.address.street, `${siteConfig.address.postalCode} ${siteConfig.address.city}`].filter(Boolean).join(', ')}
                 </span>
               </div>
             </div>

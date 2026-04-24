@@ -13,15 +13,14 @@ const ease = [0.22, 1, 0.36, 1] as const
 const INTERVAL = 5000
 
 const defaults = {
-  eyebrow: 'Bienvenue',
-  title: 'Votre partenaire pour réussir en ligne',
-  description: 'Nous accompagnons les entreprises avec des solutions sur mesure, pensées pour durer. Présence digitale, performance et clarté.',
+  eyebrow: 'Hop4Lead',
+  title: "Remettre l'humain au cœur de la performance",
+  description:
+    "Coaching exécutif, préparation mentale et biohacking. Pour athlètes, dirigeants et équipes qui veulent performer sans se perdre.",
   button1: 'Prendre contact',
-  button2: 'Découvrir nos services',
+  button2: 'Nos accompagnements',
   images: [
-    'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80',
-    'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1920&q=80',
-    'https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1920&q=80',
+    'https://i.ibb.co/nN80hwPf/Les3experts-1.png',
   ],
 }
 

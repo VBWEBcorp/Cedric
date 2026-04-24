@@ -3,6 +3,49 @@ import { connectDB } from '@/lib/db'
 import { BlogPost } from '@/models/Blog'
 import { verifyAuth } from '@/lib/auth'
 
+const now = new Date().toISOString()
+const fallbackPosts = [
+  {
+    _id: 'demo-1',
+    slug: 'performance-ecologique',
+    title: "Performance écologique : performer sans se cramer",
+    excerpt:
+      "Pourquoi nous défendons une performance qui respecte l'individu, s'inscrit dans la durée et reste au service de l'épanouissement.",
+    coverImage: 'https://i.ibb.co/Df7gLTcQ/coaching-equipe-france-opt-r71sd9a2ant6vka7gcad8l9m0jgws2lrm4oxwfqupk.webp',
+    category: 'Coaching exécutif',
+    author: 'Cédric Vanhoutte',
+    published: true,
+    publishedAt: now,
+    createdAt: now,
+  },
+  {
+    _id: 'demo-2',
+    slug: 'mindset-de-champion',
+    title: 'Construire un mindset de champion',
+    excerpt:
+      "Les routines mentales qui font la différence dans les moments décisifs. Retour d'expérience avec les athlètes de haut niveau.",
+    coverImage: 'https://i.ibb.co/wFfY20Qc/hop-routine-opt-r35tzvjxtodgi4uybqou01th2z7ldk3dnn8vv9q7eg.webp',
+    category: 'Préparation mentale',
+    author: 'Franck Larrey',
+    published: true,
+    publishedAt: now,
+    createdAt: now,
+  },
+  {
+    _id: 'demo-3',
+    slug: 'biohacking-pour-competiteurs',
+    title: 'Biohacking : concentration, flow et récupération',
+    excerpt:
+      "Neurosciences et méthodes concrètes pour optimiser son énergie sous adrénaline. Ce qui marche vraiment pour les compétiteurs.",
+    coverImage: 'https://i.ibb.co/nN80hwPf/Les3experts-1.png',
+    category: 'Biohacking',
+    author: 'Fabrice Bigot',
+    published: true,
+    publishedAt: now,
+    createdAt: now,
+  },
+]
+
 // GET all posts (public: published only, admin: all)
 export async function GET(request: NextRequest) {
   try {
@@ -12,10 +55,11 @@ export async function GET(request: NextRequest) {
     const filter = authenticated ? {} : { published: true }
 
     const posts = await BlogPost.find(filter).sort({ publishedAt: -1, createdAt: -1 })
+    if (!posts || posts.length === 0) return NextResponse.json(fallbackPosts)
     return NextResponse.json(posts)
   } catch (error) {
     console.error('Blog posts error:', error)
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
+    return NextResponse.json(fallbackPosts)
   }
 }
 

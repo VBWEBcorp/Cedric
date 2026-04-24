@@ -1,18 +1,18 @@
 export const siteConfig = {
-  name: 'Nom Entreprise',
-  url: 'https://www.example.com',
+  name: 'Hop4Lead',
+  url: 'https://hop4lead.com',
   locale: 'fr_FR',
   description:
-    'Votre entreprise - description courte et percutante de votre activité. Adaptez cette ligne à votre domaine.',
-  ogImage: 'https://www.example.com/og.png',
-  twitterHandle: '@votrecompte',
-  themeColor: '#6d28d9',
+    "Hop4Lead remet l'humain au cœur de la performance. Coaching exécutif, préparation mentale, bootcamps et formations pour athlètes, entrepreneurs, dirigeants et leurs équipes.",
+  ogImage: 'https://i.ibb.co/kj6QHrW/LOGO-HOP4.webp',
+  twitterHandle: '@hop4lead',
+  themeColor: '#4698CB',
   phone: '+33 1 23 45 67 89',
-  email: 'contact@example.com',
+  email: 'contact@hop4lead.com',
   address: {
-    street: '12 Rue Exemple',
+    street: '',
     city: 'Paris',
-    postalCode: '75001',
+    postalCode: '75000',
     country: 'FR',
   },
 } as const

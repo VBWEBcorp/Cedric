@@ -7,7 +7,6 @@ import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
 
 import { Logo } from '@/components/layout/logo'
-import { ThemeToggle } from '@/components/theme/theme-toggle'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
@@ -19,7 +18,7 @@ interface NavLink {
 const staticLinks: NavLink[] = [
   { to: '/', label: 'Accueil' },
   { to: '/a-propos', label: 'À propos' },
-  { to: '/services', label: 'Services' },
+  { to: '/services', label: 'Accompagnements' },
   { to: '/contact', label: 'Contact' },
 ]
 
@@ -28,7 +27,6 @@ export function Navbar() {
   const [links, setLinks] = useState<NavLink[]>(staticLinks)
   const pathname = usePathname()
 
-  // Vérifier si la galerie et le blog sont activés
   useEffect(() => {
     const checkFeatures = async () => {
       try {
@@ -42,105 +40,74 @@ export function Navbar() {
         const dynamicLinks: NavLink[] = [
           { to: '/', label: 'Accueil' },
           { to: '/a-propos', label: 'À propos' },
-          { to: '/services', label: 'Services' },
+          { to: '/services', label: 'Accompagnements' },
         ]
-
         if (gallery.enabled) dynamicLinks.push({ to: '/gallery', label: 'Galerie' })
         if (blog.enabled) dynamicLinks.push({ to: '/blog', label: 'Blog' })
-
         dynamicLinks.push({ to: '/contact', label: 'Contact' })
         setLinks(dynamicLinks)
       } catch (error) {
         console.error('Failed to check features:', error)
       }
     }
-
     checkFeatures()
   }, [])
 
+  useEffect(() => {
+    setOpen(false)
+  }, [pathname])
+
   return (
-    <header className="sticky top-0 z-50 border-b border-border/70 bg-background/75 backdrop-blur-xl supports-[backdrop-filter]:bg-background/55">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-6 px-4 sm:px-6 lg:px-8">
+    <header className="pointer-events-none fixed inset-x-0 top-4 z-50 px-3 sm:px-6">
+      <div className="pointer-events-auto mx-auto flex h-14 max-w-3xl items-center justify-between gap-3 rounded-full border border-border/60 bg-background/80 px-5 pr-2 shadow-[0_8px_24px_-12px_rgba(15,23,42,0.18)] ring-1 ring-foreground/[0.03] backdrop-blur-xl supports-[backdrop-filter]:bg-background/60">
         <Logo />
 
-        <nav
-          className="hidden items-center gap-1 md:flex"
-          aria-label="Navigation principale"
+        <Button
+          type="button"
+          variant="ghost"
+          size="sm"
+          className="gap-2 rounded-full px-4"
+          aria-expanded={open}
+          aria-controls="main-menu"
+          aria-label={open ? 'Fermer le menu' : 'Ouvrir le menu'}
+          onClick={() => setOpen((v) => !v)}
         >
-          {links.map((l) => (
-            <Link
-              key={l.to}
-              href={l.to}
-              className={cn(
-                'rounded-lg px-3 py-2 text-sm font-medium transition-colors hover:bg-muted/80 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/60',
-                pathname === l.to
-                  ? 'text-foreground'
-                  : 'text-muted-foreground'
-              )}
-            >
-              {l.label}
-            </Link>
-          ))}
-        </nav>
-
-        <div className="hidden items-center gap-2 md:flex">
-          <ThemeToggle />
-          <Button size="sm" asChild>
-            <Link href="/contact">Nous contacter</Link>
-          </Button>
-        </div>
-
-        <div className="flex items-center gap-1 md:hidden">
-          <ThemeToggle />
-          <Button
-            type="button"
-            variant="ghost"
-            size="icon-sm"
-            className="rounded-full"
-            aria-expanded={open}
-            aria-controls="mobile-nav"
-            aria-label={open ? 'Fermer le menu' : 'Ouvrir le menu'}
-            onClick={() => setOpen((v) => !v)}
-          >
-            {open ? <X className="size-5" /> : <Menu className="size-5" />}
-          </Button>
-        </div>
+          {open ? <X className="size-4" /> : <Menu className="size-4" />}
+          <span className="text-sm font-medium">Menu</span>
+        </Button>
       </div>
 
       <AnimatePresence>
         {open ? (
           <motion.div
-            id="mobile-nav"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-            className="border-t border-border/70 bg-background/95 backdrop-blur-xl md:hidden"
+            id="main-menu"
+            initial={{ opacity: 0, y: -8, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -8, scale: 0.98 }}
+            transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+            className="pointer-events-auto mx-auto mt-2 max-w-3xl overflow-hidden rounded-3xl border border-border/60 bg-background/95 shadow-xl backdrop-blur-xl"
           >
-            <div className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-4 sm:px-6">
+            <nav className="flex flex-col p-3" aria-label="Navigation principale">
               {links.map((l) => (
                 <Link
                   key={l.to}
                   href={l.to}
                   className={cn(
-                    'rounded-xl px-3 py-3 text-base font-medium transition-colors hover:bg-muted',
+                    'rounded-2xl px-4 py-3 text-base font-medium transition-colors hover:bg-muted',
                     pathname === l.to
-                      ? 'text-foreground'
+                      ? 'bg-muted text-foreground'
                       : 'text-muted-foreground'
                   )}
-                  onClick={() => setOpen(false)}
                 >
                   {l.label}
                 </Link>
               ))}
-              <div className="mt-2 border-t border-border/60 pt-4">
-                <Button className="w-full" asChild>
-                  <Link href="/contact" onClick={() => setOpen(false)}>
-                    Nous contacter
-                  </Link>
+              <div className="mt-2 border-t border-border/60 pt-3">
+                <Button className="w-full rounded-2xl" asChild>
+                  <Link href="/contact">Nous contacter</Link>
                 </Button>
               </div>
-            </div>
+            </nav>
           </motion.div>
         ) : null}
       </AnimatePresence>

@@ -7,13 +7,24 @@ export async function GET() {
   try {
     await connectDB()
     const settings = await BlogSettings.findOne()
-    if (!settings) {
-      return NextResponse.json({ enabled: false, title: 'Nos dernières actualités', eyebrow: 'Blog', description: 'Retrouvez nos conseils, nos projets récents et les tendances du secteur.' })
+    const fallback = {
+      enabled: true,
+      title: 'Ressources & inspirations',
+      eyebrow: 'Blog',
+      description: 'Conseils, retours terrain et inspirations pour performer autrement.',
+      heroImage: 'https://i.ibb.co/wFfY20Qc/hop-routine-opt-r35tzvjxtodgi4uybqou01th2z7ldk3dnn8vv9q7eg.webp',
     }
+    if (!settings) return NextResponse.json(fallback)
     return NextResponse.json(settings)
   } catch (error) {
     console.error('Blog settings error:', error)
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
+    return NextResponse.json({
+      enabled: true,
+      title: 'Ressources & inspirations',
+      eyebrow: 'Blog',
+      description: 'Conseils, retours terrain et inspirations pour performer autrement.',
+      heroImage: 'https://i.ibb.co/wFfY20Qc/hop-routine-opt-r35tzvjxtodgi4uybqou01th2z7ldk3dnn8vv9q7eg.webp',
+    })
   }
 }
 

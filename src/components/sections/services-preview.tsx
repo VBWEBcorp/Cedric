@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowRight, Globe, Palette, Search, ShieldCheck } from 'lucide-react'
+import { ArrowRight, Brain, Compass, Flame, GraduationCap } from 'lucide-react'
 import Link from 'next/link'
 
 import { SectionTitle } from '@/components/ui/section-title'
@@ -9,15 +9,15 @@ import { Button } from '@/components/ui/button'
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { useContent } from '@/hooks/use-content'
 
-const iconMap: Record<string, any> = { Globe, Search, Palette, ShieldCheck }
+const iconMap: Record<string, any> = { Compass, Brain, Flame, GraduationCap }
 const defaultServices = [
-  { title: 'Création de site web', desc: 'Sites vitrines modernes, responsive et optimisés pour convertir vos visiteurs en clients.' },
-  { title: 'Référencement SEO', desc: 'Stratégie de contenu et optimisation technique pour apparaître en première page Google.' },
-  { title: 'Identité visuelle', desc: 'Logo, charte graphique et supports cohérents qui reflètent votre image de marque.' },
-  { title: 'Maintenance & support', desc: 'Mises à jour, sécurité et accompagnement continu pour garder votre site performant.' },
+  { title: 'Coaching exécutif', desc: 'Entrepreneurs et dirigeants : gagner en performance et en sérénité en développant une vision claire, une stratégie structurée et un équilibre durable.' },
+  { title: 'Préparation mentale', desc: 'Athlètes et équipes : développer un mindset de champion pour accéder à son plein potentiel lors des échéances importantes.' },
+  { title: 'Bootcamp', desc: 'Une expérience de coaching immersive et collective, dans un cadre idéal, pour une transformation de la performance profonde et durable.' },
+  { title: 'Formations', desc: 'Optimiser votre potentiel individuel par l\'acquisition de compétences dans des domaines spécifiques.' },
 ]
 
-const defaultIcons = [Globe, Search, Palette, ShieldCheck]
+const defaultIcons = [Compass, Brain, Flame, GraduationCap]
 
 const ease = [0.22, 1, 0.36, 1] as const
 
@@ -33,9 +33,9 @@ export function ServicesPreview() {
     <section className="border-b border-border/60">
       <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
         <SectionTitle
-          eyebrow="Nos services"
-          title="Des solutions adaptées à votre activité"
-          description="Quel que soit votre secteur, nous vous aidons à développer votre présence et à atteindre vos objectifs."
+          eyebrow="Nos accompagnements"
+          title="Une gamme adaptée pour la performance des individus et des équipes"
+          description="Quatre formats complémentaires pour athlètes, dirigeants, managers et leurs équipes, avec une approche profondément humaine."
         />
         <div className="mt-14 grid gap-5 sm:grid-cols-2">
           {services.map((s: any, i: number) => {
