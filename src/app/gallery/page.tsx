@@ -54,22 +54,15 @@ export default function GalleryPage() {
     )
   }
 
-  if (!settings?.enabled) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <p className="text-muted-foreground">La galerie n&apos;est pas disponible pour le moment.</p>
-      </div>
-    )
-  }
 
   return (
     <div className="min-h-screen">
       {/* Hero */}
       <section className="relative overflow-hidden min-h-[340px] sm:min-h-[400px] lg:min-h-[440px] flex items-center">
         <div className="absolute inset-0">
-          {settings.heroImage ? (
+          {settings?.heroImage ? (
             <img
-              src={settings.heroImage}
+              src={settings?.heroImage}
               alt=""
               className="w-full h-full object-cover"
             />
@@ -88,13 +81,13 @@ export default function GalleryPage() {
             className="text-center max-w-3xl mx-auto"
           >
             <p className="font-display text-xs font-semibold tracking-[0.22em] text-white/70 uppercase mb-4">
-              {settings.eyebrow || 'Galerie'}
+              {settings?.eyebrow || 'Galerie'}
             </p>
             <h1 className="font-display text-4xl tracking-tight text-white sm:text-5xl lg:text-6xl font-bold">
-              {settings.title || 'Nos réalisations'}
+              {settings?.title || 'Nos réalisations'}
             </h1>
             <p className="mt-5 text-lg text-white/70 leading-relaxed sm:text-xl max-w-2xl mx-auto">
-              {settings.description || 'Découvrez nos projets récents et laissez-vous inspirer par notre savoir-faire.'}
+              {settings?.description || 'Découvrez nos projets récents et laissez-vous inspirer par notre savoir-faire.'}
             </p>
           </motion.div>
         </div>

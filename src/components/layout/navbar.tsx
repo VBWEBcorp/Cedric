@@ -19,6 +19,8 @@ const staticLinks: NavLink[] = [
   { to: '/', label: 'Accueil' },
   { to: '/a-propos', label: 'À propos' },
   { to: '/services', label: 'Accompagnements' },
+  { to: '/gallery', label: 'Galerie' },
+  { to: '/blog', label: 'Blog' },
   { to: '/contact', label: 'Contact' },
 ]
 
@@ -34,16 +36,16 @@ export function Navbar() {
           fetch('/api/gallery/settings'),
           fetch('/api/blog/settings'),
         ])
-        const gallery = await galleryRes.json()
-        const blog = await blogRes.json()
+        const gallery = await galleryRes.json().catch(() => ({ enabled: true }))
+        const blog = await blogRes.json().catch(() => ({ enabled: true }))
 
         const dynamicLinks: NavLink[] = [
           { to: '/', label: 'Accueil' },
           { to: '/a-propos', label: 'À propos' },
           { to: '/services', label: 'Accompagnements' },
         ]
-        if (gallery.enabled) dynamicLinks.push({ to: '/gallery', label: 'Galerie' })
-        if (blog.enabled) dynamicLinks.push({ to: '/blog', label: 'Blog' })
+        if (gallery.enabled !== false) dynamicLinks.push({ to: '/gallery', label: 'Galerie' })
+        if (blog.enabled !== false) dynamicLinks.push({ to: '/blog', label: 'Blog' })
         dynamicLinks.push({ to: '/contact', label: 'Contact' })
         setLinks(dynamicLinks)
       } catch (error) {

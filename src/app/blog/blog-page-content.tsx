@@ -71,13 +71,6 @@ export default function BlogPageContent() {
     )
   }
 
-  if (!settings?.enabled) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <p className="text-muted-foreground">Le blog n&apos;est pas disponible pour le moment.</p>
-      </div>
-    )
-  }
 
   return (
     <div className="min-h-screen">
@@ -85,9 +78,9 @@ export default function BlogPageContent() {
       <section className="relative overflow-hidden min-h-[340px] sm:min-h-[400px] lg:min-h-[440px] flex items-center">
         {/* Background image */}
         <div className="absolute inset-0">
-          {settings.heroImage ? (
+          {settings?.heroImage ? (
             <img
-              src={settings.heroImage}
+              src={settings?.heroImage}
               alt=""
               className="w-full h-full object-cover"
             />
@@ -106,20 +99,20 @@ export default function BlogPageContent() {
             className="text-center max-w-3xl mx-auto"
           >
             <p className="font-display text-xs font-semibold tracking-[0.22em] text-white/70 uppercase mb-4">
-              {settings.eyebrow || 'Blog'}
+              {settings?.eyebrow || 'Blog'}
             </p>
             <h1 className="font-display text-4xl tracking-tight text-white sm:text-5xl lg:text-6xl font-bold">
-              {settings.title || 'Nos dernières actualités'}
+              {settings?.title || 'Nos dernières actualités'}
             </h1>
             <p className="mt-5 text-lg text-white/70 leading-relaxed sm:text-xl max-w-2xl mx-auto">
-              {settings.description || 'Retrouvez nos conseils, nos projets récents et les tendances du secteur.'}
+              {settings?.description || 'Retrouvez nos conseils, nos projets récents et les tendances du secteur.'}
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* Category filters */}
-      {(settings.categories?.length ?? 0) > 0 && (
+      {(settings?.categories?.length ?? 0) > 0 && (
         <div className="border-b border-border/60 bg-background/50 backdrop-blur-sm sticky top-16 z-30">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div className="flex items-center gap-1 py-3 overflow-x-auto scrollbar-hide">
@@ -133,7 +126,7 @@ export default function BlogPageContent() {
               >
                 Tous
               </button>
-              {settings.categories?.map((cat) => (
+              {settings?.categories?.map((cat) => (
                 <button
                   key={cat}
                   onClick={() => setActiveCategory(cat)}
